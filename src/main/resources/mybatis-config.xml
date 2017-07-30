@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 配置文件的根元素 -->
+<configuration>
+    <!-- 属性：定义配置外在化 -->
+    <properties resource="db.properties"/>
+    <!-- 设置：定义mybatis的一些全局性设置 -->
+    <!--<settings>
+        &lt;!&ndash; 具体的参数名和参数值 &ndash;&gt;
+        <setting name="" value=""/>
+    </settings>
+    &lt;!&ndash; 类型名称：为一些类定义别名 &ndash;&gt;
+    <typeAliases/>
+    &lt;!&ndash; 类型处理器：定义Java类型与数据库中的数据类型之间的转换关系 &ndash;&gt;
+    <typeHandlers/>
+    &lt;!&ndash; 对象工厂 &ndash;&gt;
+    <objectFactory type=""/>
+    &lt;!&ndash; 插件：mybatis的插件,插件可以修改mybatis的内部运行规则 &ndash;&gt;
+    <plugins>
+        <plugin interceptor=""/>
+    </plugins>-->
+    <!-- 环境：配置mybatis的环境 -->
+    <environments default="development">
+        <!-- 环境变量：可以配置多个环境变量，比如使用多数据源时，就需要配置多个环境变量 -->
+        <environment id="development">
+            <!-- 事务管理器 -->
+            <transactionManager type="JDBC"/>
+            <!-- 数据源 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 数据库厂商标识 -->
+    <!--<databaseIdProvider type=""/>-->
+    <!-- 映射器：指定映射文件或者映射类 -->
+    <mappers>
+        <mapper resource="mapper/message.xml"/>
+    </mappers>
+</configuration>
