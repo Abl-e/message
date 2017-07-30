@@ -21,9 +21,12 @@ import java.util.List;
 public class ListServlet extends HttpServlet{
     private MessageService messageService;
 
+    public ListServlet(){
+        messageService = new MessageService();
+    }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        messageService = new MessageService();
         String command = req.getParameter("command")==null?"":req.getParameter("command").trim();
         String description = req.getParameter("description")==null?"":req.getParameter("description").trim();
         /*List<Message> messageList = messageDao.getMessageList(command,description);*/
